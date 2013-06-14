@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+<table style="text-align: center;" cellspacing="0" cellpadding="3" align="center" id="schools_table" class="tablesorter">
+  <thead>
+    <tr>
+      <th style="text-align: left;">Name</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Points For</th>
+      <th>Points Against</th>
+      <th>Division</th>
+      <th>Globe Rank</th>
+      <th>Herald Rank</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @schools.each do |school| %>
+  
+    <tr>
+      <td style="text-align: left;"><%= school.name %></td>
+      <td><%= school.wins %></td>
+      <td><%= school.losses %></td>
+      <td><%= school.pts_for %></td>
+      <td><%= school.pts_against %></td>
+      <td><%= school.division %></td>
+      <td><%= school.globe_rank %></td>
+      <td><%= school.herald_rank %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

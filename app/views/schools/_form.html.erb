@@ -1,0 +1,69 @@
+<%= form_for(@school) do |f| %>
+  <% if @school.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@school.errors.count, "error") %> prohibited this school from being saved:</h2>
+
+      <ul>
+      <% @school.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :latitude %><br />
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br />
+    <%= f.text_field :longitude %>
+  </div>
+  <div class="field">
+    <%= f.label :wins %><br />
+    <%= f.number_field :wins %>
+  </div>
+  <div class="field">
+    <%= f.label :losses %><br />
+    <%= f.number_field :losses %>
+  </div>
+  <div class="field">
+    <%= f.label :pts_against %><br />
+    <%= f.text_field :pts_against %>
+  </div>
+  <div class="field">
+    <%= f.label :pts_for %><br />
+    <%= f.text_field :pts_for %>
+  </div>
+  <div class="field">
+    <%= f.label :division %><br />
+    <%= f.number_field :division %>
+  </div>
+  <div class="field">
+    <%= f.label :big_game %><br />
+    <%= f.check_box :big_game %>
+  </div>
+  <div class="field">
+    <%= f.label :highly_recruited %><br />
+    <%= f.check_box :highly_recruited %>
+  </div>
+  <div class="field">
+    <%= f.label :globe_rank %><br />
+    <%= f.number_field :globe_rank %>
+  </div>
+  <div class="field">
+    <%= f.label :herald_rank %><br />
+    <%= f.number_field :herald_rank %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_field :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

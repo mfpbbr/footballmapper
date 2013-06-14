@@ -1,0 +1,220 @@
+<div id="about_box">
+<h1>Eastern MA Football</h1>
+<p>Presented are data and commentary for the 2012 high school football season. Represented teams are in leagues located in Eastern Massachusetts.</p><p>Have fun with the filters. Click team markers for stats and game predictions. </p><p>If you have a question or a comment or if you see an error, please <a href="#">let me know</a>!  
+</p>
+</div>
+
+<div id="filter_wrapper">
+  <a href="#" id="schools_link">Schools</a> | <a href="#" id="about_link">About</a> | <a href="#" id="contact_link">Contact</a> 
+      
+      <div class="break"></div>
+      <h3>Use sliders to filter map</h3>
+      <p>Wins</p>
+            <input type="text" id="filtered-wins" />
+            <div class="break"></div>
+            <div id='wins-range'></div>
+            <br>
+            <p>Losses</p>
+            <input type="text" id="filtered-losses" />
+            <div class="break"></div>
+            <div id='losses-range'></div>
+            <br>
+            <p>Points Scored</p>
+            <input type="text" id="filtered-points" />
+            <div class="break"></div>
+            <div id='points-range'></div>
+            <br>
+            <p>Points Against</p>
+      <input type="text" id="filtered-points_against" />
+      <div class="break"></div>
+      <div id='points_against-range'></div>
+      <br>
+      <p>Boston Globe Top 20</p>
+            <input type="text" id="filtered-globe" />
+            <div class="break"></div>
+            <div id='globe-range'></div>
+            <br>
+            <p>Boston Herald Top 15</p>
+            <input type="text" id="filtered-herald" />
+            <div class="break"></div>
+            <div id='herald-range'></div>
+            <br>
+</div><!--filter wrapper-->
+<!-- schools dialog window -->
+<div id="schools_dialog">
+  <%= render 'school_dialog' %>
+</div>
+<!-- about dialog window --> 
+<div id="about_dialog">
+  <%= render 'about_dialog' %>
+</div>
+
+<div id="contact_dialog">
+  <%= render 'contact_dialog' %>
+</div>
+
+<%= gmaps(:markers => {:data => @json},
+          :map_options => {:center_latitude => '42.301849', 
+          :center_longitude => '-71.282591', :auto_adjust => false, :zoom => 9,
+          :maxZoom => 12, :minZoom => 7, :libraries => [:adsense]}
+         ) %> 
+
+      
+<% content_for :javascript %> 
+<script type="text/javascript">
+  $(document).ready(function() {
+    Gmaps.map.callback = function() {
+
+      var adUnitDiv, adUnitOptions;
+      adUnitDiv = document.createElement("div");
+      adUnitOptions = {
+        format: google.maps.adsense.AdFormat.BANNER,
+        position: google.maps.ControlPosition.BOTTOM_CENTER,
+        backgroundColor: '#ffffff',
+        borderColor: '#cccccc',
+        map: Gmaps.map.serviceObject,
+        visible: true,
+        publisherId: "ca-pub-3964215240206120"
+      };
+      new google.maps.adsense.AdUnit(adUnitDiv, adUnitOptions);
+
+      var WinsFilter = {
+        min: 0,
+        max: 13,
+      };
+
+      var LossesFilter = {
+        min: 0,
+        max: 12,
+      };
+
+      var PointsFilter = {
+        min: 0,
+        max: 45,
+      };
+    
+    var PointsAgainstFilter = {
+        min: 0,
+        max: 45,
+      };
+
+      var GlobeFilter = {
+        min: 0,
+        max: 20,
+      };
+
+      var HeraldFilter = {
+        min: 0,
+        max: 16,
+      };
+
+      $( "#filtered-wins" ).val( (WinsFilter.min)+ " - " + (WinsFilter.max))
+
+      $( "#filtered-losses" ).val( (LossesFilter.min)+ " - " + (LossesFilter.max))
+      
+      $( "#filtered-points" ).val( (PointsFilter.min)+ " - " + (PointsFilter.max))
+      
+      $( "#filtered-points_against" ).val( (PointsAgainstFilter.min)+ " - " + (PointsAgainstFilter.max))
+      
+      $( "#filtered-globe" ).val( (GlobeFilter.min)+ " - " + (GlobeFilter.max))
+      
+      $( "#filtered-herald" ).val( (HeraldFilter.min)+ " - " + (HeraldFilter.max))
+      
+      $("#wins-range").slider({
+        range: true,
+        min: WinsFilter.min,
+        max: WinsFilter.max,
+        values: [ WinsFilter.min, WinsFilter.max ],
+        slide: function(event, ui) {
+          $( "#filtered-wins" ).val( (ui.values[ 0 ])+ " - " + (ui.values[ 1 ]))
+          WinsFilter.min = ui.values[ 0 ]
+          WinsFilter.max = ui.values[ 1 ]
+          applyFilters()
+        }
+      });
+
+      $("#losses-range").slider({
+        range: true,
+        min: LossesFilter.min,
+        max: LossesFilter.max,
+        values: [ LossesFilter.min, LossesFilter.max ],
+        slide: function(event, ui) {
+          $( "#filtered-losses" ).val( (ui.values[ 0 ])+ " - " + (ui.values[ 1 ]))
+          LossesFilter.min = ui.values[ 0 ]
+          LossesFilter.max = ui.values[ 1 ]
+          applyFilters()
+        }
+      });
+
+      $("#points-range").slider({
+        range: true,
+        min: PointsFilter.min,
+        max: PointsFilter.max,
+        values: [ PointsFilter.min, PointsFilter.max ],
+        slide: function(event, ui) {
+          $( "#filtered-points" ).val( (ui.values[ 0 ])+ " - " + (ui.values[ 1 ]))
+          PointsFilter.min = ui.values[ 0 ]
+          PointsFilter.max = ui.values[ 1 ]
+          applyFilters()
+        }
+      });
+
+    $("#points_against-range").slider({
+        range: true,
+        min: PointsAgainstFilter.min,
+        max: PointsAgainstFilter.max,
+        values: [ PointsAgainstFilter.min, PointsAgainstFilter.max ],
+        slide: function(event, ui) {
+          $( "#filtered-points_against" ).val( (ui.values[ 0 ])+ " - " + (ui.values[ 1 ]))
+          PointsAgainstFilter.min = ui.values[ 0 ]
+          PointsAgainstFilter.max = ui.values[ 1 ]
+          applyFilters()
+        }
+      });
+
+      $("#globe-range").slider({
+        range: true,
+        min: GlobeFilter.min,
+        max: GlobeFilter.max,
+        values: [ GlobeFilter.min, GlobeFilter.max ],
+        slide: function(event, ui) {
+          $( "#filtered-globe" ).val( (ui.values[ 0 ])+ " - " + (ui.values[ 1 ]))
+          GlobeFilter.min = ui.values[ 0 ]
+          GlobeFilter.max = ui.values[ 1 ]
+          applyFilters()
+        }
+      });
+
+
+      $("#herald-range").slider({
+        range: true,
+        min: HeraldFilter.min,
+        max: HeraldFilter.max,
+        values: [ HeraldFilter.min, HeraldFilter.max ],
+        slide: function(event, ui) {
+          $( "#filtered-herald" ).val( (ui.values[ 0 ])+ " - " + (ui.values[ 1 ]))
+          HeraldFilter.min = ui.values[ 0 ]
+          HeraldFilter.max = ui.values[ 1 ]
+          applyFilters()
+        }
+      });
+
+      var VisibleMarkers = function() {
+      var filtered = _.reject(Gmaps.map.markers, function(marker) {
+          return marker.wins < WinsFilter.min || marker.wins > WinsFilter.max || marker.losses < LossesFilter.min || marker.losses > LossesFilter.max || marker.pts_for < PointsFilter.min || marker.pts_for > PointsFilter.max || marker.pts_against < PointsAgainstFilter.min || marker.pts_against > PointsAgainstFilter.max || marker.globe_rank < GlobeFilter.min || marker.globe_rank > GlobeFilter.max || marker.herald_rank < HeraldFilter.min || marker.herald_rank > HeraldFilter.max;;
+       });
+           return filtered
+        //return Crimefiltered
+       }
+
+      var applyFilters = function() {
+        _.each(Gmaps.map.markers, function(marker) {
+          Gmaps.map.hideMarker(marker)
+        })
+        _.each(VisibleMarkers(), function(marker) {
+          Gmaps.map.showMarker(marker)
+        })
+      };
+   }
+});
+</script>

@@ -1,0 +1,137 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require jquery.ui.slider
+ *= require jquery.ui.dialog
+ *= require_tree .
+ */
+
+  div, header, footer, section, aside, nav, p, h1, h2, h3, ul, li, a {margin: 0;}
+ ul, li {list-style: none;}
+
+ .ad {
+ 	background: #FFEBEB;
+ }
+
+ #admin_description {
+ 	float: left;
+ 	width: 400px;
+ 	padding: 5px;
+ 	background: #eee;
+ }
+
+ #admin_data {
+ 	float: right;
+ 	width: 400px;
+ 	padding: 5px;
+ }
+
+ #admin_wrapper {
+	padding: 5px;
+	margin: 10px 0;
+ }
+
+ #advertisement_wrapper {
+ 	padding: 5px;
+ 	margin: 10px 0;
+ }
+
+ #advertisement_wrapper h3 {
+ 	margin: 10px 0 0 0;
+ }
+
+ .break {
+ 	clear: both;
+ }
+
+ #container {
+ 	width: 100%;
+ }
+
+ #current_advertisement {
+ 	width: 400px;
+ 	float: left;
+ 	padding: 5px;
+ }
+
+
+ #logged_in_message {
+ 	background: rgba(205, 205, 205, 0.8);
+ 	border-radius: 3px;
+ 	z-index: 100;
+ 	padding: 5px;
+ 	font-weight: bold;
+ }
+
+ .field label {
+ 	margin: 0 0 5px 0;
+ }
+
+ .field input, .field select {
+ }
+
+
+ #sample_advertisement {
+ 	width: 400px;
+ 	float: right;
+ 	padding: 5px;
+ }
+
+ section > article > aside > ul > li {
+ 	padding: 0 0 0 15px;
+ }
+ 
+ section > article > p {
+ 	margin: 10px 0;
+ }
+
+ #wrapper {
+ 	width: 960px;
+ 	margin: 0 auto;
+ }
+
+#left_column {
+	width: 400px;
+	float: left;
+}
+
+#right_column {
+	width: 400px;
+	float: right;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+#right_column > p {
+	padding: 0 5px;
+	margin: 10px 0 0 0;
+}
+
+th.headerSortUp { 
+    background-image: url(app/assets/images/asc.gif); 
+    background-color: #3399FF; 
+} 
+
+th.headerSortDown { 
+    background-image: url(app/assets/images/desc.gif); 
+    background-color: #3399FF; 
+} 
+
+th.header { 
+    background-image: url(app/assets/images/bg.gif);     
+    cursor: pointer; 
+    font-weight: bold; 
+    background-repeat: no-repeat; 
+    background-position: center left; 
+    padding-left: 20px; 
+    border-right: 1px solid #dad9c7; 
+    margin-left: -1px; 
+}

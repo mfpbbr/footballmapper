@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @school.name %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @school.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @school.longitude %>
+</p>
+
+<p>
+  <b>Wins:</b>
+  <%= @school.wins %>
+</p>
+
+<p>
+  <b>Losses:</b>
+  <%= @school.losses %>
+</p>
+
+<p>
+  <b>Pts against:</b>
+  <%= @school.pts_against %>
+</p>
+
+<p>
+  <b>Pts for:</b>
+  <%= @school.pts_for %>
+</p>
+
+<p>
+  <b>Division:</b>
+  <%= @school.division %>
+</p>
+
+<p>
+  <b>Big game:</b>
+  <%= @school.big_game %>
+</p>
+
+<p>
+  <b>Highly recruited:</b>
+  <%= @school.highly_recruited %>
+</p>
+
+<p>
+  <b>Globe rank:</b>
+  <%= @school.globe_rank %>
+</p>
+
+<p>
+  <b>Herald rank:</b>
+  <%= @school.herald_rank %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @school.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_school_path(@school) %> |
+<%= link_to 'Back', schools_path %>

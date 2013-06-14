@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  latitude: 1.5
+  longitude: 1.5
+  wins: 1
+  losses: 1
+  pts_against: 1.5
+  pts_for: 1.5
+  division: 1
+  big_game: false
+  highly_recruited: false
+  globe_rank: 1
+  herald_rank: 1
+  content: MyString
+
+two:
+  name: MyString
+  latitude: 1.5
+  longitude: 1.5
+  wins: 1
+  losses: 1
+  pts_against: 1.5
+  pts_for: 1.5
+  division: 1
+  big_game: false
+  highly_recruited: false
+  globe_rank: 1
+  herald_rank: 1
+  content: MyString
