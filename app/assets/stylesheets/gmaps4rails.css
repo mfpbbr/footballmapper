@@ -41,16 +41,14 @@ z-index: 100;
 width: 180px;
 }
 
-#about_box p {
-font-size: 12px; 
-margin: 0 0 5px 0;
-}
-
 #about_box h1 {
-  font-size: 18px; 
-  text-align: center;
+  text-align: left;
+  font-size: 24px;
 }
-
+#about_box p {
+margin: 5px 0;
+text-align: center;
+}
 
 #advertiserLoginButton {
   padding: 5px;
@@ -91,7 +89,7 @@ margin: 0 0 5px 0;
   top: 100px; 
   right: 15px; 
   z-index: 100; 
-  width: 220px;
+  width: 300px;
   background: #fff;
   padding: 20px; 
   box-shadow: 1px 1px 3px 1px #0066ff;

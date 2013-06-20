@@ -1,10 +1,15 @@
 <div id="about_box">
-<h1>Eastern MA Football</h1>
-<p>Presented are data and commentary for the 2012 high school football season. Represented teams are in leagues located in Eastern Massachusetts.</p><p>Have fun with the filters. Click team markers for stats and game predictions. </p><p>If you have a question or a comment or if you see an error, please <a href="#">let me know</a>!  
-</p>
+<h1>FootballMapper</h1> 
+<p>Stage: Pre-Alpha</p>
 </div>
 
 <div id="filter_wrapper">
+  <% if advertiser_signed_in? %>
+    Signed in as <%= current_advertiser.email %>. Not you?
+    <%= link_to "Sign out", destroy_advertiser_session_path, :method => :delete %> Change advertisement? <%= link_to "Edit", edit_advertiser_registration_path %>
+  <% else %>
+    <%= link_to "Sign up", new_advertiser_registration_path %> or <%= link_to "Sign in", new_advertiser_session_path %> |
+  <% end %>
   <a href="#" id="schools_link">Schools</a> | <a href="#" id="about_link">About</a> | <a href="#" id="contact_link">Contact</a> 
       
       <div class="break"></div>
@@ -34,7 +39,7 @@
             <div class="break"></div>
             <div id='globe-range'></div>
             <br>
-            <p>Boston Herald Top 15</p>
+            <p>Boston Herald Sweet 16</p>
             <input type="text" id="filtered-herald" />
             <div class="break"></div>
             <div id='herald-range'></div>
@@ -54,8 +59,8 @@
 </div>
 
 <%= gmaps(:markers => {:data => @json},
-          :map_options => {:center_latitude => '42.301849', 
-          :center_longitude => '-71.282591', :auto_adjust => false, :zoom => 9,
+          :map_options => {:center_latitude => '42.231849', 
+          :center_longitude => '-70.682591', :auto_adjust => false, :zoom => 9,
           :maxZoom => 12, :minZoom => 7, :libraries => [:adsense]}
          ) %> 
 

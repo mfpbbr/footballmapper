@@ -6,7 +6,13 @@
 </div>
 	<div id="contentBox"><p><b>2012 Recap:</b> <%= school.content %></p></div>
 	<div id="advert_box">
-		
+		<% if school.advertiser %> 
+		<%= school.advertiser.business_name %> <br />
+		<%= school.advertiser.advertisement %><br />
+		<%= school.advertiser.url %>
+		<% else %>
+			<p>Would you like to advertise here? Please <%= link_to "Sign Up", new_advertiser_registration_path %></p>
+		<% end %>
 	</div>
 	<div id="footer">
 	<p>see something wrong? Have a comment? <a href="#contact">Contact</a></p>
