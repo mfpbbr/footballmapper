@@ -1,4 +1,9 @@
 <p id="notice"><%= notice %></p>
+<%= form_tag('/search', remote: true) %>
+  <%= label_tag(:search, 'Search school:') %>
+  <%= text_field_tag(:search) %>
+<%= submit_tag("Find!") %>
+
 <table style="text-align: center;" cellspacing="0" cellpadding="3" align="center" id="schools_table" class="tablesorter">
   <thead>
     <tr>

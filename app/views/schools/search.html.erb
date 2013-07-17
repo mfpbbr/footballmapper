@@ -1,0 +1,7 @@
+<h1>Search Results:</h1>
+<% @schools.each do |school| %>
+	<%= school.name %>
+	<%= school.wins %>
+	<%= school.losses %><br>
+<% end %>
+<%= link_to 'View Map', schools_path %>

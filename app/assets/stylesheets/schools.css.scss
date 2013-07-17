@@ -1,3 +1,10 @@
 // Place all the styles related to the Schools controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$red: #990000;
+
+#admin_panel_link {
+	color: $red;
+	font-weight: bold;
+}

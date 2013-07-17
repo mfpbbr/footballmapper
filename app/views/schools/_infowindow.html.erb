@@ -9,7 +9,7 @@
 		<% if school.advertiser %> 
 		<%= school.advertiser.business_name %> <br />
 		<%= school.advertiser.advertisement %><br />
-		<%= school.advertiser.url %>
+		<a href="http://<%= school.advertiser.url %>"><%= school.advertiser.url %></a>
 		<% else %>
 			<p>Would you like to advertise here? Please <%= link_to "Sign Up", new_advertiser_registration_path %></p>
 		<% end %>

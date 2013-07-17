@@ -24,6 +24,8 @@ class AdvertisersController < ApplicationController
 
   def edit
     @advertiser = Advertiser.find(params[:id])
+    @first = Advertiser.first
+    @json = @advertiser.to_gmaps4rails
   end
 
   def create

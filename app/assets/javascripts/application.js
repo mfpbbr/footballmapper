@@ -78,4 +78,23 @@ $(document).ready(function() {
 	// table sorter
 	$("#schools_table").tablesorter(); 
 
+	$( "#sign_in_dialog" ).dialog({
+	  title: "Sign In",
+	  width: 200,
+	  height: 150,
+	  autoOpen: false,
+	  buttons: [{
+		text: "Close",
+		click: function() {
+		  $(this).dialog("close")
+		}
+
+	  }]
+	});	
+
+	$("#sign_in_link").on("click", function() {
+	  $("#sign_in_dialog").dialog("open");	
+	});
+
 })
+

@@ -19,6 +19,10 @@ class SchoolsController < ApplicationController
     end
   end
 
+  def search
+    @schools = School.search(params[:search])
+  end
+
   # GET /schools/1
   # GET /schools/1.json
   def show

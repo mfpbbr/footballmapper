@@ -1,3 +1,61 @@
 // Place all the styles related to the Advertisers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$black: #000;
+$blue: #000099;
+$red: #990000;
+
+html {background-color: #eee;}
+#admin_panel {
+background-color: #eee;
+font-family: Arial;
+width: 1000px;
+margin: 0 auto;
+padding: 20px;
+height: 100%;
+}
+
+#admin_panel_top_border {
+	background-color: $black;
+	height: 50px;
+
+}
+
+#admin_panel_left_col {
+	float: left;
+	width: 475px;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+	width: 190px;
+height: 15px;
+   border: 1px solid;
+   border-color: #C0C0C0 #E4E4E4 #E4E4E4 #C0C0C0;
+   background: #EEE;
+   padding: 8px 5px;
+margin: 0 0 10px 0;
+   font: 12px Arial, Tahoma, Helvetica, sans-serif;
+   -moz-box-shadow: 0 0 5px #C0C0C0;
+   -moz-border-radius: 5px;
+   -webkit-box-shadow: 0 0 5px #C0C0C0;
+   -webkit-border-radius: 5px;
+   box-shadow: 0 0 5px #C0C0C0;
+   border-radius: 5px;
+}
+
+#admin_panel_right_col {
+	float: right;
+	width: 500px;
+	border: 1px solid #eee;
+}
+
+#admin_panel_right_col img {
+	display: block;
+}
+
+#advertiser_advertisement {
+	width: 425px;
+}

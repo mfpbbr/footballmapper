@@ -5,10 +5,10 @@
 
 <div id="filter_wrapper">
   <% if advertiser_signed_in? %>
-    Signed in as <%= current_advertiser.email %>. Not you?
-    <%= link_to "Sign out", destroy_advertiser_session_path, :method => :delete %> Change advertisement? <%= link_to "Edit", edit_advertiser_registration_path %>
+    <%= link_to "Admin Panel", edit_advertiser_registration_path, id: 'admin_panel_link' %>
+    <%= link_to "Sign out", destroy_advertiser_session_path, :method => :delete %> 
   <% else %>
-    <%= link_to "Sign up", new_advertiser_registration_path %> or <%= link_to "Sign in", new_advertiser_session_path %> |
+    <%= link_to "Sign in", new_advertiser_session_path %> |
   <% end %>
   <a href="#" id="schools_link">Schools</a> | <a href="#" id="about_link">About</a> | <a href="#" id="contact_link">Contact</a> 
       

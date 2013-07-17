@@ -1,32 +1,90 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div id="admin_panel_top_border"></div>
+  <div id="container">
+    <div id="admin_panel">
+      <div id="admin_panel_left_col">
+        <p>Welcome to your admin panel, <%= current_advertiser.first_name %></p>
+        
+        <%= current_advertiser.business_name %><br>
+        <%= current_advertiser.street %><br>
+        <%= current_advertiser.city %>,
+        <%= current_advertiser.state %>
+        <%= current_advertiser.zipcode %>
+        <br><br>
+      
+        <br/><br>
+        <p>Your current advertisement is set to:</p>
+        <span style="color: #990000;"><%= current_advertiser.advertisement %></span>
+        <br><br>
+        <p>To update your advertisement:</p>
+        <ol>
+          <li>1. Enter your new advertisement in the box below.</li>
+          <li>2. Enter your password (so that we know its you)</li>
+          <li>3. Click the Update button</p>
+        </ol>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
+        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+          <%= devise_error_messages! %>
+          <br>
+            <%= field_set_tag do %>
+            <div>
+              <%= f.label :advertisement, 'Update' %><br />
+              <%= f.text_field :advertisement, placeholder: 'Update Advertisement' %>
+            </div>
+            
+          <div>
+            <%= f.label :current_password, 'Password' %><br />
+            <%= f.password_field :current_password %>
+          </div>
+          <% end %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+          <% if 1==2 %>
+          <p>To edit your email (login) and or password, <a id="personal_settings_toggle" href="#">click here</a></p>
+          
+          <div id="admin_panel_personal_settings">
+            <div>
+              <%= f.label :email %><br />
+              <%= f.email_field :email, :autofocus => true %>
+            </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+            <div>
+              <%= f.label :password %> <i>Change Password (leave blank if you don't want to change it)</i><br />
+              <%= f.password_field :password, :autocomplete => "off" %>
+            </div>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
+            <div>
+              <%= f.label :password_confirmation %><br />
+              <%= f.password_field :password_confirmation %>
+            </div>
+          </div><!--admin_panel_personal_settings-->
+          <% end %>
+          <div>
+            <%= f.submit "Update" %>
+          </div>
+        
+        <% end %>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+        <%= link_to "Back to map", :back %>
+      </div><!--admin_panel_left_col-->
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
+      <!-- right column image-->
+      <div id="admin_panel_right_col">
+        <%= gmaps(:data => @json) %>
+      </div><!--admin panel right col-->
+      <div class="break"></div>
+    </div><!--admin panel-->
+</div><!--container-->
 
-  <div><%= f.label :advertisement %> <i>(update your advertisement)</i><br />
-  <%= f.text_field :advertisement %></div>
+<script type="text/javascript">
+$(document).ready(function() {
   
-  <div><%= f.submit "Update" %></div>
-<% end %>
+  $("#advertiser_advertisement").keyup(function() {
+    $(".advertiser_advertisement").html($(this).val())
+  });
 
-<h3>Cancel my account</h3>
+    $("#advertiser_advertisement").on('focus', function(){
+      $(this).val(''); 
+    });
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
-
-<%= link_to "Back", :back %>
+  
+})
+</script>

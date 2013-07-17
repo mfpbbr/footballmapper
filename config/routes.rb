@@ -7,6 +7,8 @@ Footballmapper::Application.routes.draw do
 
   get "league/new"
 
+  get "search" => "schools#search"
+
   resources :schools
 
   resources :leagues

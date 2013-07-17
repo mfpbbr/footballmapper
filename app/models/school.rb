@@ -9,6 +9,14 @@ class School < ActiveRecord::Base
 
   acts_as_gmappable :process_geocoding => false
 
+  def self.search(search)
+    if search
+      find(:all, :conditions => ["name LIKE ?", "%#{search}%"])
+    else
+      find(:all)
+    end
+  end
+
   def gmaps4rails_address
    "#{name}, #{state}"
   end
