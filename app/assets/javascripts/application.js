@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require jquery.ui.slider
 //= require jquery.ui.dialog
 //= require jquery.tablesorter

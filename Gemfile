@@ -31,3 +31,8 @@ gem 'debugger'
 gem 'gmaps4rails'
 
 gem 'devise'
+
+# bootstrap gems
+gem "therubyracer"
+gem "less-rails" 
+gem "twitter-bootstrap-rails"

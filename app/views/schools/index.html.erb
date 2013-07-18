@@ -1,18 +1,6 @@
-<div id="about_box">
-<h1>FootballMapper</h1> 
-<p>Stage: Pre-Alpha</p>
-</div>
+<%= render 'main_content' %>
 
 <div id="filter_wrapper">
-  <% if advertiser_signed_in? %>
-    <%= link_to "Admin Panel", edit_advertiser_registration_path, id: 'admin_panel_link' %>
-    <%= link_to "Sign out", destroy_advertiser_session_path, :method => :delete %> 
-  <% else %>
-    <%= link_to "Sign in", new_advertiser_session_path %> |
-  <% end %>
-  <a href="#" id="schools_link">Schools</a> | <a href="#" id="about_link">About</a> | <a href="#" id="contact_link">Contact</a> 
-      
-      <div class="break"></div>
       <h3>Use sliders to filter map</h3>
       <p>Wins</p>
             <input type="text" id="filtered-wins" />
@@ -44,6 +32,8 @@
             <div class="break"></div>
             <div id='herald-range'></div>
             <br>
+            <input type="checkbox" id="big_game" />Big Game<br>
+            <input type="checkbox" id="highly_recruited" />Highly Recruited
 </div><!--filter wrapper-->
 <!-- schools dialog window -->
 <div id="schools_dialog">
@@ -61,7 +51,7 @@
 <%= gmaps(:markers => {:data => @json},
           :map_options => {:center_latitude => '42.231849', 
           :center_longitude => '-70.682591', :auto_adjust => false, :zoom => 9,
-          :maxZoom => 12, :minZoom => 7, :libraries => [:adsense]}
+          :maxZoom => 12, :minZoom => 7}
          ) %> 
 
       
@@ -70,18 +60,86 @@
   $(document).ready(function() {
     Gmaps.map.callback = function() {
 
-      var adUnitDiv, adUnitOptions;
-      adUnitDiv = document.createElement("div");
-      adUnitOptions = {
-        format: google.maps.adsense.AdFormat.BANNER,
-        position: google.maps.ControlPosition.BOTTOM_CENTER,
-        backgroundColor: '#ffffff',
-        borderColor: '#cccccc',
-        map: Gmaps.map.serviceObject,
-        visible: true,
-        publisherId: "ca-pub-3831985887275338"
-      };
-      new google.maps.adsense.AdUnit(adUnitDiv, adUnitOptions);
+      // checkboxes :]
+      // == BIG GAME STARTS HERE ==
+      // Show big money er game!
+      function showBigGame(big_game) {
+        // console.log(gameInfo);
+        for (var i=0; i<Gmaps.map.markers.length; i++) {
+          if (Gmaps.map.markers[i].big_game ==  true) {
+            Gmaps.map.showMarker(Gmaps.map.markers[i]);
+          }
+        }
+        document.getElementById(big_game).checked = true;
+      }
+
+      // hides big games
+      function hideBigGame(big_game) {
+        for (var i=0; i<Gmaps.map.markers.length; i++) {
+          if (Gmaps.map.markers[i].big_game == true) {
+            Gmaps.map.hideMarker(Gmaps.map.markers[i]);
+          }
+        }
+        // == clear the checkbox ==
+        document.getElementById(big_game).checked = false;
+        // == close the info window, in case its open on a marker that we just hid
+        // Gmaps.map.infowindow.close();
+      }
+
+      // == HIGHLY RECRUITED STARTS HERE ==
+      
+      function showHighlyRecruited(highly_recruited) {
+        // console.log(gameInfo);
+        for (var i=0; i<Gmaps.map.markers.length; i++) {
+          if (Gmaps.map.markers[i].highly_recruited ==  true) {
+            Gmaps.map.showMarker(Gmaps.map.markers[i]);
+          }
+        }
+        document.getElementById(highly_recruited).checked = true;
+      }
+
+      // hides big games
+      function hideHighlyRecruited(highly_recruited) {
+        for (var i=0; i<Gmaps.map.markers.length; i++) {
+          if (Gmaps.map.markers[i].highly_recruited == true) {
+            Gmaps.map.hideMarker(Gmaps.map.markers[i]);
+          }
+        }
+        // == clear the checkbox ==
+        document.getElementById(highly_recruited).checked = false;
+        // == close the info window, in case its open on a marker that we just hid
+        // Gmaps.map.infowindow.close();
+      }
+      
+      // == BOX CLICK FUNCTIONS ==
+      function bigGameBoxClick(box, big_game) { 
+        if (box.checked) {
+          showBigGame(big_game);
+        } else {
+          hideBigGame(big_game);
+        }
+      }
+
+      function highlyRecruitedBoxClick(box, highly_recruited) {
+        if (box.checked) {
+          showHighlyRecruited(highly_recruited);
+        } else {
+          hideHighlyRecruited(highly_recruited);
+        }
+      }
+
+      // click functions
+      // big game!
+      $('#big_game').click(function () {
+        bigGameBoxClick(this, 'big_game');
+      }); 
+
+      // highly recruited
+      $('#highly_recruited').click(function () {
+        highlyRecruitedBoxClick(this, 'highly_recruited');
+      }); 
+
+      // == filters for sliders ==
 
       var WinsFilter = {
         min: 0,

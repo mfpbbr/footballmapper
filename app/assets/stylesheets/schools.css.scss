@@ -8,3 +8,13 @@ $red: #990000;
 	color: $red;
 	font-weight: bold;
 }
+
+.main_content_container {
+	position: absolute; 
+	bottom: 20px; 
+	left: 15px; 
+	z-index: 100;
+	background: #fff;
+	width: 600px;
+	padding: 20px; 
+}

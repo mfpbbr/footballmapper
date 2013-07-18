@@ -10,7 +10,7 @@ class SchoolsController < ApplicationController
                   :losses => school.losses, :pts_for => school.pts_for,
                   :globe_rank => school.globe_rank, :herald_rank => school.herald_rank,
                   :pts_against => school.pts_against, :big_game => school.big_game, 
-                  :highly_recruited => school.highly_recruited                   
+                  :highly_recruited => school.highly_recruited, :league => school.league                  
                 })
     marker.picture({:picture => "http://www.kilmain.com/gmaps_icons/usfootball_default2.png",
                     :width => 32,
