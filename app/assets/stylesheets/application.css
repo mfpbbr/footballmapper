@@ -12,8 +12,6 @@
  *= require bootstrap_and_overrides
  *= require jquery.ui.slider
  *= require jquery.ui.dialog
- *= require gmaps4rails
- *= require schools
  *= require_tree .
  */
 
