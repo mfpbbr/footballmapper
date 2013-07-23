@@ -1,4 +1,6 @@
 Footballmapper::Application.routes.draw do
+  get "static/index"
+
   get "advertisers/new"
 
   devise_for :advertisers
