@@ -1,5 +1,5 @@
 <div class="main_content_container">
-  <span class="toggle_button">-</span>  <p class="notice"><%= notice %></p>
+  <span data-toggle="collapse" data-target="#main_content">-</span>  <p class="notice"><%= notice %></p>
   <% if advertiser_signed_in? %>
     <%= link_to "Admin Panel", edit_advertiser_registration_path, id: 'admin_panel_link' %>
     <%= link_to "Sign out", destroy_advertiser_session_path, :method => :delete %> 
@@ -16,7 +16,7 @@
 
 
 
-  <div id="main_content">
+  <div id="main_content" class="collapse in" data-toggle="false">
     <div class="tab-content">
     <div class="tab-pane active" id="home">
       <p class="lead">How the season will shape up according to footballmappper.</p>
