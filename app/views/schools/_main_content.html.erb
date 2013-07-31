@@ -1,12 +1,5 @@
 <div class="main_content_container">
-  <span data-toggle="collapse" data-target="#main_content">-</span>  <p class="notice"><%= notice %></p>
-  <% if advertiser_signed_in? %>
-    <%= link_to "Admin Panel", edit_advertiser_registration_path, id: 'admin_panel_link' %>
-    <%= link_to "Sign out", destroy_advertiser_session_path, :method => :delete %> 
-  <% else %>
-    <%= link_to "Sign in", new_advertiser_session_path %> |
-  <% end %>
-  <a href="#" id="schools_link">Schools</a> | <a href="#" id="about_link">About</a> | <a href="#" id="contact_link">Contact</a> 
+  <span data-toggle="collapse" data-target=".main_content">-</span>
   
   <ul class="nav nav-tabs">
     <li><a href="#home" data-toggle="tab">Home</a></li>
@@ -16,10 +9,10 @@
 
 
 
-  <div id="main_content" class="collapse in" data-toggle="false">
+  <div class="main_content collapse in" data-toggle="false">
     <div class="tab-content">
     <div class="tab-pane active" id="home">
-      <p class="lead">How the season will shape up according to footballmappper.</p>
+      <p class="lead">A </p>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non consequat dui. Donec vestibulum, diam eget ullamcorper porttitor, libero tellus placerat elit, eu condimentum ipsum elit quis tellus. Mauris cursus interdum erat, in tincidunt orci elementum a. Nam pharetra, nisi in porta mollis, leo arcu mollis nisi, hendrerit rutrum purus sapien vitae turpis. Integer eu nibh lacus. Nunc est est, egestas molestie consequat nec, tempor eu augue. Fusce eget quam quis lorem lacinia elementum. Suspendisse eget elementum sapien. Nulla sit amet facilisis leo. Morbi tellus felis, iaculis nec sapien eget, pharetra laoreet mauris. Mauris blandit pretium sapien in tincidunt. Vestibulum sollicitudin nunc eu metus porttitor tincidunt.<p>
     </div>
     <div class="tab-pane" id="twit">

@@ -1,0 +1,8 @@
+  <p class="notice"><%= notice %></p>
+  <% if advertiser_signed_in? %>
+    <%= link_to "Admin Panel", edit_advertiser_registration_path, id: 'admin_panel_link' %>
+    <%= link_to "Sign out", destroy_advertiser_session_path, :method => :delete %> 
+  <% else %>
+    <%= link_to "Sign in", new_advertiser_session_path %> |
+  <% end %>
+  <a href="#" id="schools_link">Schools</a> | <a href="#" id="about_link">About</a> | <a href="#" id="contact_link">Contact</a> 
