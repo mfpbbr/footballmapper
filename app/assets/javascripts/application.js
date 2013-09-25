@@ -36,6 +36,7 @@ $(document).ready(function() {
 
 	$("#schools_link").on("click", function() {
 	  $("#schools_dialog").dialog("open");	
+	  return false;
 	});
 
 	$("#schools_table tr:odd").css("background-color", "#eeeeee");

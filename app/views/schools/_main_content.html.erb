@@ -1,8 +1,22 @@
 <div class="main_content_container">
+  <div id="show-hide">
+    click
+  </div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#show-hide').click(function() {
+      $('.main_content').slideToggle(400);
+    })
+  })
+</script>
+  <nav id="nav-container">
+    <%= link_to 'School Listing', schools_path, id: 'schools_link' %>
+  </nav>
+  <div class="clearfix"></div>
   <div class="main_content">
     <h1>Football Mapper</h1>
     <p>A Ruby on Rails application which uses Google Maps and jQuery to query a map. The map consists of eastern Massachusetts high school football teams.</p>
-    <p>This app is hosted on Heroku and is <b>concept only</b>. Eventually I would like to have businesses advertise on markers. The functionality to support this is already built.</p>
+    <p>This app is hosted on Heroku and is <b>concept only</b>. There is an advertising component which lets businesses advertise on individual markers as well as an admin panel so that advertisers can update their pitch.</p>
     <p>Technologies used in building this app: Ruby on Rails, jQuery, Bootstrap.</p>    
   </div>
 </div>
