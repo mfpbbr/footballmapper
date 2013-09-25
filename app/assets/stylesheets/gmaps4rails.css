@@ -92,7 +92,7 @@ text-align: center;
   width: 300px;
   background: #fff;
   padding: 20px; 
-  box-shadow: 0px 0px 0px 0px #fff;
+  border: 1px solid #8F8F8F;
 }
 
 #filter_wrapper p {

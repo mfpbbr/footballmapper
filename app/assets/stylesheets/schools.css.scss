@@ -16,7 +16,10 @@ $red: #990000;
 	z-index: 100;
 	width: 600px;
 	padding: 20px; 
-	overflow: auto;
+	overflow: hidden;
+	border: 1px solid #8F8F8F;
+	background: #fff;
+
 }
 
 .main_content {
